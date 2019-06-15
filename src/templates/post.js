@@ -5,6 +5,7 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 import Layout from '../components/Layout';
 import Link from '../components/Link';
+import SEO from '../components/seo'
 
 const CategoryList = ({ list = [] }) => (
   <Fragment>
@@ -25,6 +26,10 @@ export default function Post({
 }) {
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
+      <SEO
+        frontmatter={mdx.fields}
+        isBlogPost
+      />
       <h1>{mdx.frontmatter.title}</h1>
       <h2>{mdx.frontmatter.date}</h2>
 

@@ -2,8 +2,6 @@
   "name": "gatsby-mdx-blog-starter-project",
   "description": "Gatsby MDX Blog Starter Project",
   "version": "1.0.0",
-  "author": "Robin Wieruch <hello@rwieruch.com> (https://www.robinwieruch.de/)",
-  "repository": "https://github.com/rwieruch/gatsby-mdx-starter-project",
   "dependencies": {
     "@mdx-js/mdx": "^1.0.14",
     "@mdx-js/react": "^1.0.6",

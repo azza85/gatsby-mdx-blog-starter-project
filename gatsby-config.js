@@ -1,16 +1,26 @@
+const config = require('./config/website')
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://www.robinwieruch.de/',
-    author: 'Robin Wieruch',
-    title: 'Gatsby MDX Starter Project',
-    description: 'My Gatsby MDX Starter Project',
-    keywords: [
-      'Software Engineer',
-      'Web Developer',
-      'Consultant',
-      'Freelancer',
-    ],
+    siteUrl: config.siteUrl + pathPrefix,
+    title: config.siteTitle,
+    twitterHandle: config.twitterHandle,
+    description: config.siteDescription,
+    keywords: ['Video Blogger'],
+    canonicalUrl: config.siteUrl,
+    image: config.siteLogo,
+    author: config.author,
+    organization: {
+      name: config.organization,
+      url: config.siteUrl,
+      logo: config.siteLogo,
+    },
+    social: {
+      twitter: config.twitterHandle,
+      fbAppID: '',
+    },
   },
   plugins: [
     {
@@ -51,13 +61,25 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'A learning, teaching and writing software engineer',
-        short_name: 'RWieruch',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#525dce',
+        name: config.siteTitle,
+        short_name: config.siteTitleShort,
+        description: config.siteDescription,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
         display: 'standalone',
-        icon: 'assets/logo.png',
+        icons: [
+          {
+            src: '/favicons/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
       },
     },
     'gatsby-plugin-offline',
